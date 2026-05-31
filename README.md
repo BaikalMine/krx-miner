@@ -12,7 +12,7 @@ Download the Windows release archive:
 
 For newer NVIDIA GPUs, use the CUDA 13 package with RTX 30/40/50 support:
 
-`releases/krx-miner-windows-v0.2.1-gpu-0.7-cuda13-sm86-sm89-sm120.zip`
+`releases/krx-miner-windows-v0.2.9-gpu-0.7-cuda13-sm86-sm89-sm120.zip`
 
 Extract the archive to any folder, for example:
 
@@ -59,7 +59,7 @@ The CUDA 13 package includes NVIDIA CUDA targets `sm_86`, `sm_89`, and `sm_120` 
 
 Для новых NVIDIA GPU используйте CUDA 13 пакет с поддержкой RTX 30/40/50:
 
-`releases/krx-miner-windows-v0.2.1-gpu-0.7-cuda13-sm86-sm89-sm120.zip`
+`releases/krx-miner-windows-v0.2.9-gpu-0.7-cuda13-sm86-sm89-sm120.zip`
 
 Распакуйте архив в любую папку, например:
 
