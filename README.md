@@ -10,6 +10,10 @@ Download the Windows release archive:
 
 `releases/krx-miner-windows-v0.2.1-gpu-0.7.zip`
 
+For newer NVIDIA GPUs, use the CUDA 13 package with RTX 30/40/50 support:
+
+`releases/krx-miner-windows-v0.2.1-gpu-0.7-cuda13-sm86-sm89-sm120.zip`
+
 Extract the archive to any folder, for example:
 
 `D:\Mine\keryx miner`
@@ -43,6 +47,8 @@ Mining software is often flagged by antivirus products. If Windows removes the m
 
 For NVIDIA GPUs, install recent NVIDIA drivers. For AMD or other OpenCL devices, install drivers with OpenCL support.
 
+The CUDA 13 package includes NVIDIA CUDA targets `sm_86`, `sm_89`, and `sm_120` for RTX 30xx, 40xx, and 50xx cards.
+
 ## Русский гайд
 
 ### Скачать
@@ -50,6 +56,10 @@ For NVIDIA GPUs, install recent NVIDIA drivers. For AMD or other OpenCL devices,
 Скачайте Windows-архив:
 
 `releases/krx-miner-windows-v0.2.1-gpu-0.7.zip`
+
+Для новых NVIDIA GPU используйте CUDA 13 пакет с поддержкой RTX 30/40/50:
+
+`releases/krx-miner-windows-v0.2.1-gpu-0.7-cuda13-sm86-sm89-sm120.zip`
 
 Распакуйте архив в любую папку, например:
 
@@ -83,3 +93,5 @@ keryx-miner.exe --keryxd-address stratum+tcp://krx.baikalmine.com:9020 --threads
 ### GPU
 
 Для NVIDIA установите актуальные драйверы NVIDIA. Для AMD или других OpenCL-устройств нужны драйверы с поддержкой OpenCL.
+
+CUDA 13 пакет включает NVIDIA CUDA targets `sm_86`, `sm_89` и `sm_120` для RTX 30xx, 40xx и 50xx карт.
