@@ -59,7 +59,7 @@ Run:
 
 ```bash
 tar -xzf keryx-miner-v0.1.2-OPoI-linux-amd64-cuda.tar.gz
-cd keryx-miner-v0.1.2-OPoI-linux-amd64-cuda
+cd keryx-miner-v0.1.2-OPoI-linux-amd64
 chmod +x keryx-miner
 LD_LIBRARY_PATH="$PWD:${LD_LIBRARY_PATH}" ./keryx-miner --cuda-no-blocking-sync --keryxd-address stratum+tcp://krx.baikalmine.com:9020 --threads 0 --mining-address keryx:YOUR_WALLET.YOUR_WORKER
 ```
@@ -71,7 +71,7 @@ Create a Flight Sheet with a custom miner.
 Use this install URL:
 
 ```text
-https://github.com/BaikalMine/krx-miner/releases/download/v0.1.2-beta/keryx-miner-v0.1.2-OPoI-hiveos.tar.gz
+https://github.com/BaikalMine/krx-miner/releases/download/v0.1.2-beta/keryx-miner-v0.1.2-OPoI-hiveos-build2.tar.gz
 ```
 
 Use this pool URL:
@@ -105,7 +105,7 @@ Example HiveOS Flight Sheet JSON:
         "url": "stratum+tcp://krx.baikalmine.com:9020",
         "miner": "keryx-miner-v0.1.2-OPoI",
         "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/BaikalMine/krx-miner/releases/download/v0.1.2-beta/keryx-miner-v0.1.2-OPoI-hiveos.tar.gz",
+        "install_url": "https://github.com/BaikalMine/krx-miner/releases/download/v0.1.2-beta/keryx-miner-v0.1.2-OPoI-hiveos-build2.tar.gz",
         "user_config": "keryx-miner --cuda-no-blocking-sync --threads 0 --keryxd-address stratum+tcp://krx.baikalmine.com:9020\n--mining-address %WAL%.%WORKER_NAME%"
       },
       "pool_geo": []
