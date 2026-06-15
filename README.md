@@ -71,7 +71,7 @@ Create a Flight Sheet with a custom miner.
 Use this install URL:
 
 ```text
-https://github.com/BaikalMine/krx-miner/releases/download/v0.1.2-beta/keryx-miner-v0.1.2-OPoI-hiveos-build2.tar.gz
+https://github.com/BaikalMine/krx-miner/releases/download/v0.1.2-beta/keryx-miner-v0.1.2-OPoI-hiveos.tar.gz
 ```
 
 Use this pool URL:
@@ -83,7 +83,7 @@ stratum+tcp://krx.baikalmine.com:9020
 Recommended miner config:
 
 ```text
-keryx-miner --cuda-no-blocking-sync --threads 0 --keryxd-address stratum+tcp://krx.baikalmine.com:9020
+--threads 0 --keryxd-address stratum+tcp://krx.baikalmine.com:9020
 --mining-address %WAL%.%WORKER_NAME%
 ```
 
@@ -100,13 +100,13 @@ Example HiveOS Flight Sheet JSON:
       "wal_id": 0,
       "dpool_ssl": false,
       "miner": "custom",
-      "miner_alt": "keryx-miner-v0.1.2-OPoI",
+      "miner_alt": "keryx-miner",
       "miner_config": {
         "url": "stratum+tcp://krx.baikalmine.com:9020",
-        "miner": "keryx-miner-v0.1.2-OPoI",
+        "miner": "keryx-miner",
         "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/BaikalMine/krx-miner/releases/download/v0.1.2-beta/keryx-miner-v0.1.2-OPoI-hiveos-build2.tar.gz",
-        "user_config": "keryx-miner --cuda-no-blocking-sync --threads 0 --keryxd-address stratum+tcp://krx.baikalmine.com:9020\n--mining-address %WAL%.%WORKER_NAME%"
+        "install_url": "https://github.com/BaikalMine/krx-miner/releases/download/v0.1.2-beta/keryx-miner-v0.1.2-OPoI-hiveos.tar.gz",
+        "user_config": "--threads 0 --keryxd-address stratum+tcp://krx.baikalmine.com:9020\n--mining-address %WAL%.%WORKER_NAME%"
       },
       "pool_geo": []
     }
@@ -127,4 +127,4 @@ Set `wal_id` to your HiveOS wallet id, or create the Flight Sheet manually in th
 - Models are not bundled in the release archives.
 - The miner uses local models when present and prepares required model files on first run.
 - Keep `escrow.key` safe if you mine OPoI rewards.
-- HiveOS archive root folder is `keryx-miner-v0.1.2-OPoI/` so it matches `miner_alt`.
+- HiveOS archive root folder is `keryx-miner/` so it matches `miner_alt`.
