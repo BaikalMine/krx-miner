@@ -1,97 +1,117 @@
-# KRX Miner for BaikalMine
+# BaikalMine KRX Miner
 
-Windows GPU miner package for Keryx/KRX mining on the BaikalMine pool.
+High performance Keryx / OPoI CUDA miner build for BaikalMine.
 
-## English Guide
+## Download
 
-### Download
+Use the latest release:
 
-Download the Windows release archive:
+https://github.com/BaikalMine/krx-miner/releases
 
-`releases/krx-miner-windows-v0.2.1-gpu-0.7.zip`
+Release assets:
 
-For newer NVIDIA GPUs, use the CUDA 13 package with RTX 30/40/50 support:
+- `keryx-miner-v0.1.1-OPoI-win64-amd64.zip`
+- `keryx-miner-v0.1.1-OPoI-linux-amd64-cuda.tar.gz`
+- `keryx-miner-v0.1.1-OPoI-hiveos.tar.gz`
 
-`releases/krx-miner-windows-v0.2.9-gpu-0.7-cuda13-sm86-sm89-sm120.zip`
+## Supported GPUs
 
-Extract the archive to any folder, for example:
+- NVIDIA RTX 30 series
+- NVIDIA RTX 40 series
+- NVIDIA RTX 50 series
 
-`D:\Mine\keryx miner`
+The miner includes CUDA kernels for Ampere, Ada and Blackwell GPUs.
 
-### Files
+## Windows
 
-- `keryx-miner.exe` - miner executable
-- `keryxcuda.dll` - CUDA GPU plugin
-- `keryxopencl.dll` - OpenCL GPU plugin
-- `start-keryx-pool.bat` - ready-to-use BaikalMine pool launcher
+1. Download and extract `keryx-miner-v0.1.1-OPoI-win64-amd64.zip`.
+2. Edit `start-keryx-pool.bat`.
+3. Replace the wallet in `--mining-address`.
+4. Run `start-keryx-pool.bat`.
 
-### Pool Configuration
-
-The included `start-keryx-pool.bat` uses:
-
-```bat
-keryx-miner.exe --keryxd-address stratum+tcp://krx.baikalmine.com:9020 --threads 0 --mining-address keryx:qqmkzvmaqavsddukx4h0qszv8mfeheqevzzl7n6u2w8a4zvtvczcyp4ms4x3u
-```
-
-Replace the wallet address with your own Keryx address before mining.
-
-### First Run
-
-On first launch, the miner may download TinyLlama model files. This can be about 2.2 GB and happens once.
-
-### Antivirus Notice
-
-Mining software is often flagged by antivirus products. If Windows removes the miner, add your miner folder to antivirus exclusions, then extract the archive again.
-
-### GPU Notes
-
-For NVIDIA GPUs, install recent NVIDIA drivers. For AMD or other OpenCL devices, install drivers with OpenCL support.
-
-The CUDA 13 package includes NVIDIA CUDA targets `sm_86`, `sm_89`, and `sm_120` for RTX 30xx, 40xx, and 50xx cards.
-
-## Русский гайд
-
-### Скачать
-
-Скачайте Windows-архив:
-
-`releases/krx-miner-windows-v0.2.1-gpu-0.7.zip`
-
-Для новых NVIDIA GPU используйте CUDA 13 пакет с поддержкой RTX 30/40/50:
-
-`releases/krx-miner-windows-v0.2.9-gpu-0.7-cuda13-sm86-sm89-sm120.zip`
-
-Распакуйте архив в любую папку, например:
-
-`D:\Mine\keryx miner`
-
-### Файлы
-
-- `keryx-miner.exe` - исполняемый файл майнера
-- `keryxcuda.dll` - GPU-плагин для CUDA
-- `keryxopencl.dll` - GPU-плагин для OpenCL
-- `start-keryx-pool.bat` - готовый запуск для пула BaikalMine
-
-### Настройка пула
-
-В комплекте есть `start-keryx-pool.bat` со строкой:
+Example:
 
 ```bat
-keryx-miner.exe --keryxd-address stratum+tcp://krx.baikalmine.com:9020 --threads 0 --mining-address keryx:qqmkzvmaqavsddukx4h0qszv8mfeheqevzzl7n6u2w8a4zvtvczcyp4ms4x3u
+keryx-miner.exe --cuda-no-blocking-sync --keryxd-address stratum+tcp://krx.baikalmine.com:9020 --threads 0 --mining-address keryx:YOUR_WALLET.YOUR_WORKER
 ```
 
-Перед запуском замените адрес кошелька на свой Keryx-адрес.
+## Linux
 
-### Первый запуск
+Requirements:
 
-При первом запуске майнер может скачать модель TinyLlama. Размер около 2.2 GB, скачивается один раз.
+- x86_64 Linux
+- NVIDIA driver with CUDA support
+- CUDA 12 runtime libraries available on the system
 
-### Антивирус
+Run:
 
-Антивирусы часто ругаются на майнеры. Если Windows удаляет `keryx-miner.exe`, добавьте папку майнера в исключения антивируса и распакуйте архив заново.
+```bash
+tar -xzf keryx-miner-v0.1.1-OPoI-linux-amd64-cuda.tar.gz
+cd keryx-miner-v0.1.1-OPoI-linux-amd64-cuda
+chmod +x keryx-miner
+LD_LIBRARY_PATH="$PWD:${LD_LIBRARY_PATH}" ./keryx-miner --cuda-no-blocking-sync --keryxd-address stratum+tcp://krx.baikalmine.com:9020 --threads 0 --mining-address keryx:YOUR_WALLET.YOUR_WORKER
+```
 
-### GPU
+## HiveOS Flight Sheet
 
-Для NVIDIA установите актуальные драйверы NVIDIA. Для AMD или других OpenCL-устройств нужны драйверы с поддержкой OpenCL.
+Create a Flight Sheet with a custom miner.
 
-CUDA 13 пакет включает NVIDIA CUDA targets `sm_86`, `sm_89` и `sm_120` для RTX 30xx, 40xx и 50xx карт.
+Use this install URL:
+
+```text
+https://github.com/BaikalMine/krx-miner/releases/download/v0.1.1/keryx-miner-v0.1.1-OPoI-hiveos.tar.gz
+```
+
+Use this pool URL:
+
+```text
+stratum+tcp://krx.baikalmine.com:9020
+```
+
+Recommended miner config:
+
+```text
+keryx-miner --cuda-no-blocking-sync --threads 0 --keryxd-address stratum+tcp://krx.baikalmine.com:9020
+--mining-address %WAL%.%WORKER_NAME%
+```
+
+Example HiveOS Flight Sheet JSON:
+
+```json
+{
+  "name": "BaikalMine KRX",
+  "isFavorite": false,
+  "items": [
+    {
+      "coin": "KRX",
+      "pool_ssl": false,
+      "wal_id": 0,
+      "dpool_ssl": false,
+      "miner": "custom",
+      "miner_alt": "keryx-miner-v0.1.1-OPoI",
+      "miner_config": {
+        "url": "stratum+tcp://krx.baikalmine.com:9020",
+        "miner": "keryx-miner-v0.1.1-OPoI",
+        "template": "%WAL%.%WORKER_NAME%",
+        "install_url": "https://github.com/BaikalMine/krx-miner/releases/download/v0.1.1/keryx-miner-v0.1.1-OPoI-hiveos.tar.gz",
+        "user_config": "keryx-miner --cuda-no-blocking-sync --threads 0 --keryxd-address stratum+tcp://krx.baikalmine.com:9020\n--mining-address %WAL%.%WORKER_NAME%"
+      },
+      "pool_geo": []
+    }
+  ]
+}
+```
+
+Set `wal_id` to your HiveOS wallet id, or create the Flight Sheet manually in the HiveOS UI.
+
+## Developer Fee
+
+- BaikalMine pools (`*.baikalmine.com`): `1.5%`
+- Other pools: `3%`
+
+## Notes
+
+- Do not share your generated `escrow.key`.
+- Models are not bundled in the release archives.
+- The miner uses local models when present and prepares required model files on first run.
+- Keep `escrow.key` safe if you mine OPoI rewards.
