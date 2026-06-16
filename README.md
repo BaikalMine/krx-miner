@@ -68,6 +68,13 @@ LD_LIBRARY_PATH="$PWD:${LD_LIBRARY_PATH}" ./keryx-miner --cuda-no-blocking-sync 
 
 Create a Flight Sheet with a custom miner.
 
+HiveOS uses the custom miner `Name` / `miner_alt` as the install folder name.
+Use this miner name:
+
+```text
+keryx-miner-v0.1.2-OPoI
+```
+
 Use this install URL:
 
 ```text
@@ -100,10 +107,10 @@ Example HiveOS Flight Sheet JSON:
       "wal_id": 0,
       "dpool_ssl": false,
       "miner": "custom",
-      "miner_alt": "keryx-miner",
+      "miner_alt": "keryx-miner-v0.1.2-OPoI",
       "miner_config": {
         "url": "stratum+tcp://krx.baikalmine.com:9020",
-        "miner": "keryx-miner",
+        "miner": "keryx-miner-v0.1.2-OPoI",
         "template": "%WAL%.%WORKER_NAME%",
         "install_url": "https://github.com/BaikalMine/krx-miner/releases/download/v0.1.2-beta/keryx-miner-v0.1.2-OPoI-hiveos.tar.gz",
         "user_config": "--threads 0 --keryxd-address stratum+tcp://krx.baikalmine.com:9020\n--mining-address %WAL%.%WORKER_NAME%"
@@ -127,4 +134,4 @@ Set `wal_id` to your HiveOS wallet id, or create the Flight Sheet manually in th
 - Models are not bundled in the release archives.
 - The miner uses local models when present and prepares required model files on first run.
 - Keep `escrow.key` safe if you mine OPoI rewards.
-- HiveOS archive root folder is `keryx-miner/` so it matches `miner_alt`.
+- HiveOS archive root folder is `keryx-miner-v0.1.2-OPoI/` and must match `miner_alt`.
