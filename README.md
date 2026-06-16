@@ -11,8 +11,8 @@ https://github.com/BaikalMine/krx-miner/releases
 Release assets:
 
 - `keryx-miner-v0.1.2-OPoI-win64-amd64.zip`
-- `keryx-miner-v0.1.2.2-OPoI-linux-amd64-cuda.tar.gz`
-- `keryx-miner-v0.1.2.2-OPoI-hiveos.tar.gz`
+- `keryx-miner-v0.1.2.3-OPoI-linux-amd64-cuda.tar.gz`
+- `keryx-miner-v0.1.2.3-OPoI-hiveos.tar.gz`
 
 ## Supported GPUs
 
@@ -58,8 +58,8 @@ Requirements:
 Run:
 
 ```bash
-tar -xzf keryx-miner-v0.1.2.2-OPoI-linux-amd64-cuda.tar.gz
-cd keryx-miner-v0.1.2.2-OPoI-linux-amd64-cuda
+tar -xzf keryx-miner-v0.1.2.3-OPoI-linux-amd64-cuda.tar.gz
+cd keryx-miner-v0.1.2.3-OPoI-linux-amd64-cuda
 chmod +x keryx-miner
 LD_LIBRARY_PATH="$PWD:${LD_LIBRARY_PATH}" ./keryx-miner --cuda-no-blocking-sync --keryxd-address stratum+tcp://krx.baikalmine.com:9020 --threads 0 --mining-address keryx:YOUR_WALLET.YOUR_WORKER
 ```
@@ -72,13 +72,13 @@ HiveOS uses the custom miner `Name` / `miner_alt` as the install folder name.
 Use this miner name:
 
 ```text
-keryx-miner-v0.1.2.2-OPoI
+keryx-miner-v0.1.2.3-OPoI
 ```
 
 Use this install URL:
 
 ```text
-https://github.com/BaikalMine/krx-miner/releases/download/v0.1.2.2-beta/keryx-miner-v0.1.2.2-OPoI-hiveos.tar.gz
+https://github.com/BaikalMine/krx-miner/releases/download/v0.1.2.3-beta/keryx-miner-v0.1.2.3-OPoI-hiveos.tar.gz
 ```
 
 Use this pool URL:
@@ -107,12 +107,12 @@ Example HiveOS Flight Sheet JSON:
       "wal_id": 0,
       "dpool_ssl": false,
       "miner": "custom",
-      "miner_alt": "keryx-miner-v0.1.2.2-OPoI",
+      "miner_alt": "keryx-miner-v0.1.2.3-OPoI",
       "miner_config": {
         "url": "stratum+tcp://krx.baikalmine.com:9020",
-        "miner": "keryx-miner-v0.1.2.2-OPoI",
+        "miner": "keryx-miner-v0.1.2.3-OPoI",
         "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/BaikalMine/krx-miner/releases/download/v0.1.2.2-beta/keryx-miner-v0.1.2.2-OPoI-hiveos.tar.gz",
+        "install_url": "https://github.com/BaikalMine/krx-miner/releases/download/v0.1.2.3-beta/keryx-miner-v0.1.2.3-OPoI-hiveos.tar.gz",
         "user_config": "--threads 0 --keryxd-address stratum+tcp://krx.baikalmine.com:9020\n--mining-address %WAL%.%WORKER_NAME%"
       },
       "pool_geo": []
@@ -135,4 +135,4 @@ Set `wal_id` to your HiveOS wallet id, or create the Flight Sheet manually in th
 - The miner uses local models when present and prepares required model files on first run.
 - HiveOS upgrades migrate an existing `models/` directory from older `keryx-miner-v*` custom miner folders before startup.
 - Keep `escrow.key` safe if you mine OPoI rewards.
-- HiveOS archive root folder is `keryx-miner-v0.1.2.2-OPoI/` and must match `miner_alt`.
+- HiveOS archive root folder is `keryx-miner-v0.1.2.3-OPoI/` and must match `miner_alt`.
