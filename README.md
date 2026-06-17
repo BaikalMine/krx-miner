@@ -90,8 +90,7 @@ stratum+tcp://krx.baikalmine.com:9020
 Recommended miner config:
 
 ```text
---threads 0 --keryxd-address stratum+tcp://krx.baikalmine.com:9020
---mining-address %WAL%.%WORKER_NAME%
+--threads 0 --keryxd-address stratum+tcp://krx.baikalmine.com:9020 --mining-address %WAL%.%WORKER_NAME%
 ```
 
 Example HiveOS Flight Sheet JSON:
@@ -113,7 +112,7 @@ Example HiveOS Flight Sheet JSON:
         "miner": "keryx-miner-v0.1.2.5-OPoI",
         "template": "%WAL%.%WORKER_NAME%",
         "install_url": "https://github.com/BaikalMine/krx-miner/releases/download/v0.1.2.5-beta/keryx-miner-v0.1.2.5-OPoI-hiveos.tar.gz",
-        "user_config": "--threads 0 --keryxd-address stratum+tcp://krx.baikalmine.com:9020\n--mining-address %WAL%.%WORKER_NAME%"
+        "user_config": "--threads 0 --keryxd-address stratum+tcp://krx.baikalmine.com:9020 --mining-address %WAL%.%WORKER_NAME%"
       },
       "pool_geo": []
     }
