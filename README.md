@@ -60,6 +60,11 @@ The live console dashboard separates raw GPU speed from pauses:
 
 ## Windows
 
+Requirements:
+
+- NVIDIA driver with CUDA support
+- CUDA runtime/cuBLAS DLLs available in `PATH` or next to `keryx-miner.exe`
+
 1. Download and extract `keryx-miner-v0.1.2-OPoI-win64-amd64.zip`.
 2. Edit `start-keryx-pool.bat`.
 3. Replace the wallet in `--mining-address`.
